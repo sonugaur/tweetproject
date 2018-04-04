@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th>Image</th>
+    <th>Name</th>
+    <th>Tweets</th>
+  </tr>
+ <%= will_paginate %>
+  <% @tweets.each do |tweet| %>
+    <tr>
+      <td><%= image_tag image_url(tweet.profile_image) %></td>&nbsp;
+      <td><%= tweet.screen_name %></td>&nbsp;
+      <td><%= tweet.tweet_content %></td>&nbsp;
+    </tr>
+  <% end %>
+</table>
+<%= will_paginate @tweets %>

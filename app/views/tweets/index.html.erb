@@ -1,0 +1,10 @@
+<h1>Listing Tweets</h1>
+<%= form_tag tweets_path, :method => 'get', remote: true do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Filter", :tweet_content => nil %>
+  </p>
+<% end %>
+<div id="task-form">
+ <%=render "tweet_partial" %>
+</div>

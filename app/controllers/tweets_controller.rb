@@ -1,8 +1,12 @@
 class TweetsController < ApplicationController
 
-def index
-    #Get the tweets (records) from the model Ordered by 'twitter_created_at' descending
-     @tweets = Tweet.order("twitter_created_at desc")  
-   end
+  def index
+       @tweets = Tweet.search(params[:search]).paginate(page: params[:page], per_page: 20)
+       respond_to do |format|
+         format.html
+         format.json
+       end
+     
+  end
 	
 end

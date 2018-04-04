@@ -56,3 +56,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'twitter'
 gem 'clockwork'
 gem 'sidekiq'
+gem 'will_paginate'         
+gem 'bootstrap-will_paginate'
+gem 'bootstrap-sass'
