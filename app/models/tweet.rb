@@ -7,7 +7,7 @@ class Tweet < ApplicationRecord
       config.access_token = '2911021353-kaRkA5MflRqpAgq6O5ToWyBaFa7sbR4ZCh38IVW'
       config.access_token_secret = '0bCxw0jQr4rCo6RbFJCEQS8dtD7kDWN8kUemYAwiSr2xA'
     end
-    client.search("cricket", result_type: "recent").take(1).collect do |tweetii|
+    client.search("cricket", result_type: "recent").take(100).collect do |tweetii|
       p "-----------#{tweetii.user.screen_name}: #{tweetii.text} :#{tweetii.created_at}  : #{tweetii.user.profile_image_url} : #{tweetii.user.id}------" 
       unless Tweet.exists?(['tweet_time = ? AND user_id = ?', "#{tweetii.created_at}", "#{tweetii.user.id}"])
         Tweet.create!(screen_name: "#{tweetii.user.screen_name}", tweet_content: "#{tweetii.text}", tweet_time: "#{tweetii.created_at}", profile_image: "#{tweetii.user.profile_image_url}", user_id: "#{tweetii.user.id}", tweet_id: "#{tweetii.id}")
